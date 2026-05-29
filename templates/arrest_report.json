@@ -1,0 +1,71 @@
+{
+  "report_type": "arrest_report",
+  "title": "Arrest Report",
+  "fields": [
+    {
+      "name": "reporting_officer",
+      "label": "Reporting Officer",
+      "required": true,
+      "priority": "identity",
+      "source": "officer.name",
+      "question": "Please confirm the arresting officer."
+    },
+    {
+      "name": "arrest_date",
+      "label": "Arrest Date",
+      "required": true,
+      "priority": "timeline",
+      "source": "incident.date",
+      "question": "What date did the arrest occur?"
+    },
+    {
+      "name": "arrest_time",
+      "label": "Arrest Time",
+      "required": true,
+      "priority": "timeline",
+      "source": "arrest.time",
+      "question": "What time was the suspect placed under arrest?"
+    },
+    {
+      "name": "arrest_location",
+      "label": "Arrest Location",
+      "required": true,
+      "priority": "timeline",
+      "source": "incident.location",
+      "question": "Where did the arrest occur?"
+    },
+    {
+      "name": "suspect_name",
+      "label": "Suspect Name",
+      "required": true,
+      "priority": "identity",
+      "source": "arrest.suspect_name",
+      "question": "What is the suspect's full name?"
+    },
+    {
+      "name": "charges",
+      "label": "Charges",
+      "required": true,
+      "priority": "legal",
+      "source": "charges",
+      "question": "What charges are being filed?"
+    },
+    {
+      "name": "miranda_given",
+      "label": "Miranda Given",
+      "required": true,
+      "priority": "legal",
+      "source": "miranda_given",
+      "question": "Were Miranda rights given, and if so at what time?"
+    },
+    {
+      "name": "evidence_supporting_arrest",
+      "label": "Evidence Supporting Arrest",
+      "required": true,
+      "priority": "evidence",
+      "source": "evidence",
+      "question": "What evidence supported probable cause for the arrest?"
+    }
+  ]
+}
+

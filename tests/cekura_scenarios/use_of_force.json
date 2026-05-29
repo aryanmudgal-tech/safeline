@@ -1,0 +1,9 @@
+{
+  "id": "use_of_force",
+  "persona": "Officer documenting a control hold used during active resistance.",
+  "ground_truth": {
+    "expected_reports": ["incident_report", "use_of_force"],
+    "critical_fields": ["subject_behavior", "force_type", "force_justification", "injuries"]
+  }
+}
+

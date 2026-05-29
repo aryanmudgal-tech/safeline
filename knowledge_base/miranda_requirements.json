@@ -1,0 +1,15 @@
+{
+  "required_when": [
+    "Custodial interrogation occurred",
+    "Officer asked questions reasonably likely to elicit incriminating responses after custody began"
+  ],
+  "fields": [
+    "whether Miranda rights were given",
+    "time rights were given",
+    "who gave the warning",
+    "whether the subject waived or invoked rights",
+    "whether questioning stopped after invocation"
+  ],
+  "notes": "Miranda documentation is prioritized for arrest reports when post-custody questioning is mentioned."
+}
+

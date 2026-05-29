@@ -1,0 +1,79 @@
+{
+  "report_type": "use_of_force",
+  "title": "Use of Force Report",
+  "fields": [
+    {
+      "name": "reporting_officer",
+      "label": "Reporting Officer",
+      "required": true,
+      "priority": "identity",
+      "source": "officer.name",
+      "question": "Please confirm the officer who used force."
+    },
+    {
+      "name": "force_date",
+      "label": "Force Date",
+      "required": true,
+      "priority": "timeline",
+      "source": "incident.date",
+      "question": "What date did the force occur?"
+    },
+    {
+      "name": "force_time",
+      "label": "Force Time",
+      "required": true,
+      "priority": "timeline",
+      "source": "force_details.time",
+      "question": "At what time did the use of force occur?"
+    },
+    {
+      "name": "force_location",
+      "label": "Force Location",
+      "required": true,
+      "priority": "timeline",
+      "source": "incident.location",
+      "question": "Where did the use of force occur?"
+    },
+    {
+      "name": "primary_subject_name",
+      "label": "Primary Subject Name",
+      "required": true,
+      "priority": "identity",
+      "source": "force_details.subject_name",
+      "question": "Who was the subject of the force?"
+    },
+    {
+      "name": "force_type",
+      "label": "Type of Force",
+      "required": true,
+      "priority": "legal",
+      "source": "force_details.type",
+      "question": "What type of force was used?"
+    },
+    {
+      "name": "subject_behavior",
+      "label": "Subject Behavior",
+      "required": true,
+      "priority": "legal",
+      "source": "force_details.subject_behavior",
+      "question": "What was the subject doing that required force?"
+    },
+    {
+      "name": "force_justification",
+      "label": "Force Justification",
+      "required": true,
+      "priority": "legal",
+      "source": "force_details.justification",
+      "question": "What was your justification for the force used?"
+    },
+    {
+      "name": "injuries",
+      "label": "Injuries",
+      "required": true,
+      "priority": "evidence",
+      "source": "injuries",
+      "question": "Were there any injuries or medical treatment?"
+    }
+  ]
+}
+

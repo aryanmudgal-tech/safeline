@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Connect>
+    <Stream url="wss://<YOUR_SERVER_URL>/ws/twilio">
+      <Parameter name="caller" value="{{From}}" />
+    </Stream>
+  </Connect>
+</Response>
+

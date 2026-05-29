@@ -1,0 +1,63 @@
+{
+  "report_type": "accident_report",
+  "title": "Accident Report",
+  "fields": [
+    {
+      "name": "reporting_officer",
+      "label": "Reporting Officer",
+      "required": true,
+      "priority": "identity",
+      "source": "officer.name",
+      "question": "Please confirm the reporting officer."
+    },
+    {
+      "name": "accident_date",
+      "label": "Accident Date",
+      "required": true,
+      "priority": "timeline",
+      "source": "incident.date",
+      "question": "What date did the accident occur?"
+    },
+    {
+      "name": "accident_time",
+      "label": "Accident Time",
+      "required": true,
+      "priority": "timeline",
+      "source": "incident.time",
+      "question": "What time did the accident occur?"
+    },
+    {
+      "name": "accident_location",
+      "label": "Accident Location",
+      "required": true,
+      "priority": "timeline",
+      "source": "incident.location",
+      "question": "Where did the accident occur?"
+    },
+    {
+      "name": "vehicles",
+      "label": "Vehicles",
+      "required": true,
+      "priority": "evidence",
+      "source": "vehicles",
+      "question": "What vehicles were involved?"
+    },
+    {
+      "name": "road_conditions",
+      "label": "Road Conditions",
+      "required": false,
+      "priority": "evidence",
+      "source": "accident.road_conditions",
+      "question": "What were the road and weather conditions?"
+    },
+    {
+      "name": "injuries",
+      "label": "Injuries",
+      "required": false,
+      "priority": "evidence",
+      "source": "injuries",
+      "question": "Were there any injuries?"
+    }
+  ]
+}
+

@@ -1,0 +1,11 @@
+{
+  "state": "New York",
+  "use_of_force": {
+    "requires_supervisor_notification": true,
+    "requires_subject_injury_documentation": true
+  },
+  "domestic_incident": {
+    "requires_domestic_incident_report": true
+  }
+}
+

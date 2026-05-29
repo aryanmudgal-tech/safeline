@@ -1,0 +1,16 @@
+{
+  "priorities": {
+    "legal": "Fields required to establish legal sufficiency, statutory compliance, Miranda documentation, force justification, or charges.",
+    "identity": "Names, badge numbers, roles, contact details, and subject identifiers.",
+    "timeline": "Dates, times, dispatch sequence, arrival, arrest, force, and clearance timestamps.",
+    "evidence": "Facts supporting probable cause, force justification, injuries, scene details, collected items, and witness accounts.",
+    "administrative": "Case numbers, classifications, units, supervisors, and routing metadata."
+  },
+  "extraction_hints": {
+    "arrest": ["placed under arrest", "taken into custody", "booked", "handcuffed"],
+    "force": ["used force", "restrained", "tased", "sprayed", "struck", "actively resisting"],
+    "vehicle": ["collision", "crash", "vehicle", "driver", "passenger"],
+    "miranda": ["read Miranda", "advised of rights", "waived rights", "invoked"]
+  }
+}
+

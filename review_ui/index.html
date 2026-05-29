@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Safeline Review</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #17202a;
+        --muted: #5f6b7a;
+        --line: #d7dde5;
+        --panel: #f8fafc;
+        --accent: #176f6b;
+        --accent-dark: #0f514e;
+        --warning: #8a4b08;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #ffffff;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        min-height: 64px;
+        padding: 14px 24px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .badge {
+        border: 1px solid #c8d9d7;
+        color: var(--accent-dark);
+        background: #eef7f5;
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: minmax(320px, 1fr) minmax(280px, 380px);
+        min-height: calc(100vh - 64px);
+      }
+
+      .reports {
+        padding: 20px 24px 32px;
+      }
+
+      .transcript {
+        border-left: 1px solid var(--line);
+        background: var(--panel);
+        padding: 20px;
+      }
+
+      .toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 18px;
+        letter-spacing: 0;
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        gap: 14px;
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        color: var(--ink);
+        font: inherit;
+        padding: 10px 11px;
+        background: #ffffff;
+      }
+
+      textarea {
+        min-height: 132px;
+        resize: vertical;
+      }
+
+      .full {
+        grid-column: 1 / -1;
+      }
+
+      button {
+        border: 0;
+        border-radius: 6px;
+        background: var(--accent);
+        color: #ffffff;
+        cursor: pointer;
+        font-weight: 700;
+        padding: 10px 14px;
+      }
+
+      button:hover {
+        background: var(--accent-dark);
+      }
+
+      .status {
+        min-height: 22px;
+        color: var(--warning);
+        font-size: 13px;
+      }
+
+      .transcript p {
+        color: var(--muted);
+        line-height: 1.55;
+        margin: 12px 0 0;
+      }
+
+      @media (max-width: 820px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+
+        .transcript {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+        }
+
+        .field-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Safeline Review</h1>
+      <div class="badge">AI draft awaiting approval</div>
+    </header>
+    <main>
+      <section class="reports">
+        <div class="toolbar">
+          <h2 id="report-title">Incident Report</h2>
+          <button id="approve">Approve</button>
+        </div>
+        <form id="report-form" class="field-grid"></form>
+        <p id="status" class="status"></p>
+      </section>
+      <aside class="transcript">
+        <h2>Transcript</h2>
+        <p id="transcript"></p>
+      </aside>
+    </main>
+    <script>
+      const incidentId = "INC-DEMO-0001";
+      const reportType = "incident_report";
+      let currentDocument = null;
+
+      async function loadDocument() {
+        const response = await fetch(`/api/incidents/${incidentId}/documents`);
+        const payload = await response.json();
+        currentDocument = payload.documents[reportType];
+        document.getElementById("report-title").textContent = currentDocument.title;
+        document.getElementById("transcript").textContent = payload.transcript;
+        renderFields(currentDocument);
+      }
+
+      function renderFields(documentPayload) {
+        const form = document.getElementById("report-form");
+        form.innerHTML = "";
+
+        Object.entries(documentPayload.fields).forEach(([name, value]) => {
+          const label = document.createElement("label");
+          label.textContent = name.replaceAll("_", " ");
+          const input = document.createElement("input");
+          input.name = name;
+          input.value = typeof value === "string" ? value : JSON.stringify(value);
+          label.appendChild(input);
+          form.appendChild(label);
+        });
+
+        const narrativeLabel = document.createElement("label");
+        narrativeLabel.className = "full";
+        narrativeLabel.textContent = "narrative";
+        const textarea = document.createElement("textarea");
+        textarea.name = "narrative";
+        textarea.value = documentPayload.narrative?.draft || "";
+        narrativeLabel.appendChild(textarea);
+        form.appendChild(narrativeLabel);
+      }
+
+      function collectDocument() {
+        const form = new FormData(document.getElementById("report-form"));
+        const fields = {};
+        for (const [name, value] of form.entries()) {
+          if (name !== "narrative") fields[name] = value;
+        }
+        return {
+          ...currentDocument,
+          fields,
+          narrative: { draft: form.get("narrative") }
+        };
+      }
+
+      async function approve() {
+        const response = await fetch(`/api/incidents/${incidentId}/documents/${reportType}/approve`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            approved_by: "Officer Elena Martinez, Badge 4521",
+            officer_version: collectDocument()
+          })
+        });
+        document.getElementById("status").textContent = response.ok
+          ? "Approved and audit diff captured."
+          : "Approval failed.";
+      }
+
+      document.getElementById("approve").addEventListener("click", approve);
+      loadDocument();
+    </script>
+  </body>
+</html>
+

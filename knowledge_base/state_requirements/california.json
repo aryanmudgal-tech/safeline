@@ -1,0 +1,11 @@
+{
+  "state": "California",
+  "use_of_force": {
+    "requires_supervisor_notification": true,
+    "requires_medical_care_documentation": true
+  },
+  "juvenile": {
+    "requires_guardian_notification": true
+  }
+}
+

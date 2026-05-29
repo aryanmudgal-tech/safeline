@@ -1,0 +1,9 @@
+{
+  "id": "domestic_disturbance",
+  "persona": "Patrol officer filing a report after a domestic disturbance with arrest and low-level force.",
+  "ground_truth": {
+    "expected_reports": ["incident_report", "arrest_report", "use_of_force"],
+    "critical_fields": ["charges", "miranda_given", "force_justification", "injuries"]
+  }
+}
+

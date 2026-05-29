@@ -1,0 +1,19 @@
+[
+  {
+    "badge": "4521",
+    "name": "Officer Elena Martinez",
+    "rank": "Officer",
+    "unit": "Patrol",
+    "supervisor": "Sgt. Daniel Reeves",
+    "phone": "+14155550121"
+  },
+  {
+    "badge": "3188",
+    "name": "Officer Marcus Chen",
+    "rank": "Officer",
+    "unit": "Traffic",
+    "supervisor": "Sgt. Priya Nair",
+    "phone": "+14155550188"
+  }
+]
+

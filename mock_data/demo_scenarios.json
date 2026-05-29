@@ -1,0 +1,21 @@
+[
+  {
+    "id": "domestic_disturbance_arrest_force",
+    "title": "Domestic disturbance with arrest and force",
+    "narrative": "I responded to 142 Oak Street at about 2:15 AM for a domestic disturbance. A female victim was standing at the doorway with redness on her forearm. The male subject ignored commands, pulled away when I attempted to detain him, and I used a control hold to place him in handcuffs. He was arrested for domestic battery and resisting arrest.",
+    "expected_reports": ["incident_report", "arrest_report", "use_of_force"]
+  },
+  {
+    "id": "dui_traffic_stop",
+    "title": "Traffic stop with DUI arrest",
+    "narrative": "I stopped a blue Honda Civic for drifting across lanes near Pine and 8th at 11:40 PM. The driver had watery eyes, slurred speech, and smelled of alcohol. After field sobriety tests, I arrested the driver for DUI.",
+    "expected_reports": ["incident_report", "arrest_report"]
+  },
+  {
+    "id": "simple_theft",
+    "title": "Simple theft report",
+    "narrative": "I took a theft report from a store manager at 500 Market Street. The manager reported that a suspect concealed headphones and left without paying. No arrest was made at the scene.",
+    "expected_reports": ["incident_report"]
+  }
+]
+

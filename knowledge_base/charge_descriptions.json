@@ -1,0 +1,20 @@
+{
+  "examples": [
+    {
+      "charge": "DUI",
+      "common_language": ["driving under the influence", "impaired driving"],
+      "reporting_notes": "Capture driving facts, impairment observations, field sobriety tests, chemical test details, and arrest timing."
+    },
+    {
+      "charge": "domestic_battery",
+      "common_language": ["domestic violence", "hit spouse", "physical altercation"],
+      "reporting_notes": "Capture relationship, visible injuries, statements, witnesses, evidence, and mandatory arrest policy if applicable."
+    },
+    {
+      "charge": "resisting_arrest",
+      "common_language": ["resisted", "pulled away", "actively resisting commands"],
+      "reporting_notes": "Use precise behavior descriptions rather than vague labels."
+    }
+  ]
+}
+

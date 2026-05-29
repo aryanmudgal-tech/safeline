@@ -1,0 +1,37 @@
+{
+  "levels": [
+    {
+      "level": "officer_presence",
+      "description": "Officer presence and lawful commands."
+    },
+    {
+      "level": "verbal_direction",
+      "description": "Verbal commands, de-escalation, and warnings."
+    },
+    {
+      "level": "soft_empty_hand_control",
+      "description": "Escort holds, balance displacement, and compliant handcuffing."
+    },
+    {
+      "level": "hard_empty_hand_control",
+      "description": "Strikes or takedowns used against active resistance or assaultive behavior."
+    },
+    {
+      "level": "intermediate_weapon",
+      "description": "Taser, OC spray, baton, or less-lethal tools."
+    },
+    {
+      "level": "deadly_force",
+      "description": "Force reasonably likely to cause death or serious bodily injury."
+    }
+  ],
+  "documentation_requirements": [
+    "Subject behavior before force",
+    "Officer warnings or de-escalation attempts",
+    "Specific force used",
+    "Reason force was reasonable and necessary",
+    "Injuries and medical care",
+    "Witnesses and available recordings"
+  ]
+}
+

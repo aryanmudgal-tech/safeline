@@ -1,0 +1,87 @@
+{
+  "report_type": "incident_report",
+  "title": "Incident Report",
+  "fields": [
+    {
+      "name": "reporting_officer",
+      "label": "Reporting Officer",
+      "required": true,
+      "priority": "identity",
+      "source": "officer.name",
+      "question": "Please confirm your name and badge number."
+    },
+    {
+      "name": "badge_number",
+      "label": "Badge Number",
+      "required": true,
+      "priority": "identity",
+      "source": "officer.badge",
+      "question": "What is your badge number?"
+    },
+    {
+      "name": "incident_date",
+      "label": "Incident Date",
+      "required": true,
+      "priority": "timeline",
+      "source": "incident.date",
+      "question": "What date did the incident occur?"
+    },
+    {
+      "name": "incident_time",
+      "label": "Incident Time",
+      "required": true,
+      "priority": "timeline",
+      "source": "incident.time",
+      "question": "What time did the incident begin?"
+    },
+    {
+      "name": "incident_location",
+      "label": "Incident Location",
+      "required": true,
+      "priority": "timeline",
+      "source": "incident.location",
+      "question": "What was the exact incident location?"
+    },
+    {
+      "name": "incident_type",
+      "label": "Incident Type",
+      "required": true,
+      "priority": "administrative",
+      "source": "incident.type",
+      "question": "What type of incident should this be classified as?"
+    },
+    {
+      "name": "involved_parties",
+      "label": "Involved Parties",
+      "required": true,
+      "priority": "identity",
+      "source": "subjects",
+      "question": "Who were the involved parties and what roles did they have?"
+    },
+    {
+      "name": "witnesses",
+      "label": "Witnesses",
+      "required": false,
+      "priority": "identity",
+      "source": "witnesses",
+      "question": "Were there any witnesses?"
+    },
+    {
+      "name": "evidence",
+      "label": "Evidence",
+      "required": false,
+      "priority": "evidence",
+      "source": "evidence",
+      "question": "Was any evidence collected or observed?"
+    },
+    {
+      "name": "injuries",
+      "label": "Injuries",
+      "required": false,
+      "priority": "evidence",
+      "source": "injuries",
+      "question": "Were there any injuries or medical responses?"
+    }
+  ]
+}
+

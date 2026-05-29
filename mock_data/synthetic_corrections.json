@@ -1,0 +1,17 @@
+[
+  {
+    "report_type": "use_of_force",
+    "category": "legal_language_fix",
+    "transcript": "The subject pulled away and ignored commands while I tried to handcuff him.",
+    "original": {"subject_behavior": "verbally aggressive"},
+    "corrected": {"subject_behavior": "actively resisted handcuffing by pulling away from lawful commands"}
+  },
+  {
+    "report_type": "arrest_report",
+    "category": "missing_field_added",
+    "transcript": "I read him his rights after placing him in the back seat.",
+    "original": {"miranda_given": "yes"},
+    "corrected": {"miranda_given": "Miranda rights read at 02:28 after arrest and before questioning"}
+  }
+]
+

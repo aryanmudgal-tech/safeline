@@ -1,0 +1,9 @@
+{
+  "id": "traffic_stop_arrest",
+  "persona": "Traffic officer filing a DUI arrest report after a late-night stop.",
+  "ground_truth": {
+    "expected_reports": ["incident_report", "arrest_report"],
+    "critical_fields": ["charges", "miranda_given", "evidence_supporting_arrest"]
+  }
+}
+
