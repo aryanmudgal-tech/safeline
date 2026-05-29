@@ -44,3 +44,34 @@ tests/                    Basic extraction and routing tests
 4. Add Deepgram/Cartesia fallbacks if NVIDIA ASR/TTS hosted endpoints are unavailable.
 5. Replace in-memory demo stores with DynamoDB/S3 in the review approval path.
 
+## Phase 1 Telephony Check
+
+The current Phase 1 implementation verifies the phone path before AI services are wired:
+
+```text
+Officer phone -> Twilio number -> /twilio/voice -> /ws/twilio
+```
+
+Run the app:
+
+```bash
+uvicorn server:app --reload
+```
+
+Expose it:
+
+```bash
+ngrok http 8000
+```
+
+Configure the Twilio phone number from the ngrok URL:
+
+```bash
+python scripts/configure_twilio_number.py --public-url https://<your-ngrok-domain>
+```
+
+Then call the Twilio number. You should hear the initial Safeline greeting, and the app should show call/media/DTMF activity at:
+
+```text
+http://127.0.0.1:8000/phase1/status
+```

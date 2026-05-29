@@ -14,7 +14,7 @@ python-dotenv
 loguru
 aiohttp
 websockets
+requests
 pydantic
 pytest
 httpx
-
